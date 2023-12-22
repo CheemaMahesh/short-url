@@ -1,8 +1,8 @@
 const User=require('../model/User');
 const Url=require('../model/Url');
-// const jwt=require('jsonwebtoken');
 
 const shortid=require('shortid');
+
 
 //generating a short url
 module.exports.shortId=async (req,res)=>{

@@ -1,6 +1,7 @@
 //Homepage
 module.exports.home=async (req,res)=>{
     try{
+        //providign details about the routes and its usage
         const routes={
             homePage:'https://short-url-maker-new.onrender.com/',
             signupPage:{

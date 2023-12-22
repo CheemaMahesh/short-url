@@ -35,7 +35,10 @@ module.exports.signIn=async (req,res)=>{
         const {username, password}=req.body;
         const existingUser= await User.findOne({username});
 
+
         const valid=1000*60*15;
+
+        //creating JWT tocken
         const JwtToken=jwt.sign(existingUser.toJSON(),'urlMaheshShortner',{expiresIn:valid})
         if(existingUser && existingUser.password === password){
                 return res.status(200).json({message:"login successful, and here is your token ,use it to create short urls in req.body.authn,it is valid upto 15 mins",token:JwtToken,user:existingUser});       

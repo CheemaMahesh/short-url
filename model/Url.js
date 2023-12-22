@@ -1,7 +1,7 @@
 const mongoose=require('mongoose');
 
 
-
+//schema for urls
 const urlSchema=mongoose.Schema({
    originalUrl:{
     type:String,

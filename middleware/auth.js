@@ -1,5 +1,7 @@
 const jwt=require('jsonwebtoken');
 
+
+//verifying the jwt
 const verifyToken=(req,res,next)=>{
 
     const token= req.body.auth;
