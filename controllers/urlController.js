@@ -12,16 +12,17 @@ module.exports.shortId=async (req,res)=>{
         const shortID=shortid(8);
         
         if(exiUser){
+            const shortUrl=`https://short-url-maker-new.onrender.com/${shortID}`
+
             const newUrl=await Url.create({
                 originalUrl:req.body.url,
-                shortUrl:shortID,
+                shortUrl:shortUrl,
                 user:req.user._id
                 });
 
                 exiUser.Urls.push(newUrl._id); 
                 await exiUser.save();      
 
-                    const shortUrl=`https://new-short-url-maker.onrender.com/${shortID}`
                 return res.status(200).json({url:req.body.url, shortUrl:shortUrl})
 
              }else{
