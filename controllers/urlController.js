@@ -12,18 +12,19 @@ module.exports.shortId=async (req,res)=>{
         const shortID=shortid(8);
         
         if(exiUser){
-            const shortUrl=`https://short-url-maker-new.onrender.com/${shortID}`
 
             const newUrl=await Url.create({
                 originalUrl:req.body.url,
-                shortUrl:shortUrl,
+                shortUrl:shortID,
                 user:req.user._id
                 });
+
+                const shortUrl=`https://short-url-maker-new.onrender.com/${shortID}`
 
                 exiUser.Urls.push(newUrl._id); 
                 await exiUser.save();      
                 return res.status(200).json({url:req.body.url, shortUrl:shortUrl});
-                
+
              }else{
             return res.status(404).json({message:"user not found"});
         }
@@ -40,7 +41,6 @@ module.exports.redirectUrl=async (req,res)=>{
     try{
         const shortUrl=req.params.shortUrl;
         const exiUrl=await Url.findOne({shortUrl});
-
             if(exiUrl){
                  res.redirect(exiUrl.originalUrl);
             }else{
