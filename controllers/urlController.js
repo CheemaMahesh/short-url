@@ -22,9 +22,8 @@ module.exports.shortId=async (req,res)=>{
 
                 exiUser.Urls.push(newUrl._id); 
                 await exiUser.save();      
-
-                return res.status(200).json({url:req.body.url, shortUrl:shortUrl})
-
+                return res.status(200).json({url:req.body.url, shortUrl:shortUrl});
+                
              }else{
             return res.status(404).json({message:"user not found"});
         }
