@@ -21,7 +21,7 @@ module.exports.shortId=async (req,res)=>{
                 exiUser.Urls.push(newUrl._id); 
                 await exiUser.save();      
 
-                    const shortUrl=`http://localhost:8000/${shortID}`
+                    const shortUrl=`https://new-short-url-maker.onrender.com/${shortID}`
                 return res.status(200).json({url:req.body.url, shortUrl:shortUrl})
 
              }else{
