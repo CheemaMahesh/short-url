@@ -23,7 +23,7 @@ module.exports.home=async (req,res)=>{
             }
 
         }
-       return res.status(200).json({message:"Welcome to URL SHORTNER ",user:req.user})
+       return res.status(200).json({message:"Welcome to URL SHORTNER ",information:routes})
 
     }catch(err){
         return res.status(401).json({message:err})
